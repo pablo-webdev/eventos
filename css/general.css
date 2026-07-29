@@ -1,0 +1,371 @@
+/* ==========================================================================
+   MIDNIGHT SOUND - STYLES UNIFICADOS (BLOQUE 1/2)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES Y RESET GENERAL
+   -------------------------------------------------------------------------- */
+:root {
+  --primary: #c69214; /* Dorado / Bronce Neón */
+  --primary-hover: #e5ab19;
+  --bg-dark: #121212; /* Fondo Principal Oscuro */
+  --bg-card: #1e1e1e; /* Fondo de Tarjetas */
+  --bg-card-hover: #262626;
+  --text-light: #ffffff;
+  --text-muted: #a0a0a0;
+  --font-main: "Open Sans", sans-serif;
+  --font-title: "Montserrat Alternates", sans-serif;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION CON VIDEO Y MENÚ RESPONSIVE DENTRO DEL CUADRO
+   -------------------------------------------------------------------------- */
+.bg {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.contenedor.redux {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+main.hero-card {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 30px 25px 45px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  color: #111111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Header interno */
+.header-interno {
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 15px;
+  position: relative;
+}
+
+/* Botón hamburguesa para móvil dentro del cuadro */
+.menu-toggle-hero {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  color: #111111;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: var(--transition);
+}
+
+.menu-toggle-hero:hover {
+  color: var(--primary);
+}
+
+.menu-interno {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: var(--transition);
+}
+
+.menu-interno a {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #222222;
+  transition: var(--transition);
+  position: relative;
+  padding: 5px 0;
+}
+
+.menu-interno a:hover {
+  color: var(--primary);
+}
+
+.menu-interno a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary);
+  transition: var(--transition);
+}
+
+.menu-interno a:hover::after {
+  width: 100%;
+}
+
+/* Adaptación responsive para el menú interno */
+@media (max-width: 768px) {
+  .menu-toggle-hero {
+    display: block;
+  }
+
+  .menu-interno {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+  }
+
+  .menu-interno.active {
+    display: flex;
+  }
+}
+
+.hero-logo {
+  max-width: 180px;
+  margin: 0 auto 20px;
+}
+
+main h1.titulo {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #111111;
+}
+
+main h1 .typed {
+  color: #c69214;
+}
+
+main p {
+  font-size: 1.05rem;
+  color: #444444;
+  max-width: 650px;
+  margin: 0 auto 25px;
+}
+
+.btn-link.activo {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(198, 146, 20, 0.4);
+}
+
+.btn-link.activo:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(198, 146, 20, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   3. BANNER DE CONFIANZA Y GARANTÍAS
+   -------------------------------------------------------------------------- */
+.banner-confianza {
+  background-color: #1a1a1a;
+  border-y: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px 0;
+}
+
+.grid-confianza {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.item-confianza i {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.item-confianza h4 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--text-light);
+}
+
+.item-confianza p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECCIÓN CATÁLOGO DE SERVICIOS Y GALERÍA
+   -------------------------------------------------------------------------- */
+.servicios-section {
+  padding: 80px 0 60px;
+  background-color: var(--bg-dark);
+}
+
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.card-servicio {
+  background-color: var(--bg-card);
+  padding: 30px 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.card-servicio:hover {
+  background-color: var(--bg-card-hover);
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+.card-servicio .icon-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(198, 146, 20, 0.1);
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.card-servicio h3 {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.card-servicio ul li {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.card-servicio ul li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Galería de fotos debajo del catálogo */
+.galeria-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.item-galeria {
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.item-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.item-galeria:hover img {
+  transform: scale(1.08);
+}

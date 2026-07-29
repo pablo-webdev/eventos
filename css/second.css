@@ -1,0 +1,431 @@
+/* ==========================================================================
+   MIDNIGHT SOUND - STYLES UNIFICADOS (BLOQUE 2/2)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   5. SECCIÓN PROCESO DE TRABAJO (4 PASOS)
+   -------------------------------------------------------------------------- */
+.proceso-section {
+  padding: 80px 0;
+  background-color: #161616;
+}
+
+.grid-pasos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.paso-card {
+  background-color: var(--bg-card);
+  padding: 30px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  transition: var(--transition);
+}
+
+.paso-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+.num-paso {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.paso-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.paso-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIÓN COBERTURA DE EVENTOS (ENLACES ACCIONABLES)
+   -------------------------------------------------------------------------- */
+.eventos-section {
+  padding: 80px 0;
+  background-color: var(--bg-dark);
+}
+
+.contenedor-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.caja-link {
+  display: block;
+  color: inherit;
+}
+
+.caja {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.caja:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.caja .imagen {
+  height: 200px;
+  overflow: hidden;
+}
+
+.caja .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.caja:hover .imagen img {
+  transform: scale(1.08);
+}
+
+.caja .descripcion {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.caja .descripcion h3 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.caja .descripcion p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.action-text {
+  display: block;
+  margin-top: 15px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: var(--transition);
+}
+
+.caja:hover .action-text {
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   7. BANNER CTA INTERMEDIO DE IMPACTO
+   -------------------------------------------------------------------------- */
+.banner-cta {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #181818 0%, #0a0a0a 100%);
+  border-y: 1px solid rgba(198, 146, 20, 0.2);
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.cta-content p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECCIÓN PREGUNTAS FRECUENTES (FAQ - 6 TARJETAS SIMÉTRICAS)
+   -------------------------------------------------------------------------- */
+.faq-section {
+  padding: 80px 0;
+  background-color: #161616;
+}
+
+.grid-faq {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.faq-card {
+  background-color: var(--bg-card);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+  transition: var(--transition);
+}
+
+.faq-card:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.faq-card h4 {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-card h4 i {
+  color: var(--primary);
+}
+
+.faq-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECCIÓN TESTIMONIOS (CARRUSEL INFINITO CON ANIMACIÓN CONTINUA)
+   -------------------------------------------------------------------------- */
+.testimonios {
+  padding: 80px 0;
+  background-color: var(--bg-dark);
+  overflow: hidden;
+}
+
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+  position: relative;
+}
+
+.ticker-wrapper::before,
+.ticker-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ticker-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+.ticker-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-dark), transparent);
+}
+
+.ticker-track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  animation: scrollInfinite 25s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.testimonio-card {
+  background: var(--bg-card);
+  padding: 25px 20px;
+  border-radius: 12px;
+  width: 320px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonio-card .persona {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.testimonio-card .persona .imagen {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+}
+
+.testimonio-card .persona .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonio-card .persona h4 {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.testimonio-card p.comentario {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 12.5px));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. FOOTER Y CONTACTO
+   -------------------------------------------------------------------------- */
+footer {
+  background-color: #0a0a0a;
+  padding: 60px 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contenedor-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.footer-col h4 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.pago-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pago-icons span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pago-icons span i {
+  color: var(--primary);
+  width: 20px;
+}
+
+.redes {
+  display: flex;
+  gap: 15px;
+}
+
+.redes a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.redes a:hover {
+  background-color: var(--primary);
+  color: #111;
+  transform: translateY(-3px);
+}
+
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+  text-align: center;
+}
+
+.copyright p {
+  color: #666666;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. BOTÓN SCROLL TO TOP
+   -------------------------------------------------------------------------- */
+.go-top-cont {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 90;
+}
+
+.go-top-cont .btn {
+  width: 45px;
+  height: 45px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+
+.go-top-cont .btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+}
