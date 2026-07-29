@@ -143,7 +143,7 @@
 .banner-cta {
   padding: 70px 20px;
   background: linear-gradient(135deg, #181818 0%, #0a0a0a 100%);
-  border-y: 1px solid rgba(198, 146, 20, 0.2);
+  border-style: 1px solid rgba(198, 146, 20, 0.2);
   text-align: center;
 }
 
@@ -224,7 +224,7 @@
 
 .ticker-wrapper::before,
 .ticker-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   width: 80px;
@@ -407,7 +407,27 @@ footer {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  z-index: 90;
+  z-index: 9999;
+  cursor: pointer;
+
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Se muestra cuando JS le agrega la clase .show */
+.go-top-cont.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.go-top-cont .btn,
+.go-top-cont i {
+  pointer-events: none; /* Evita conflictos de clic en el ícono */
 }
 
 .go-top-cont .btn {

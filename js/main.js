@@ -56,14 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (goTopBtn) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        goTopBtn.style.display = "block";
-      } else {
-        goTopBtn.style.display = "none";
+      let scrollY = window.scrollY || document.documentElement.scrollTop;
+
+      // Muestra si pasas de 100px, pero solo se oculta si regresas casi hasta arriba (< 20px)
+      if (scrollY > 100) {
+        goTopBtn.classList.add("show");
+      } else if (scrollY < 20) {
+        goTopBtn.classList.remove("show");
       }
     });
 
-    goTopBtn.addEventListener("click", () => {
+    goTopBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       window.scrollTo({
         top: 0,
         behavior: "smooth",
