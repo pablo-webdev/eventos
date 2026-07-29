@@ -27,13 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 2. MENÚ RESPONSIVE DENTRO DE LA TARJETA HERO
+  // 2. MENÚ RESPONSIVE DENTRO DE LA TARJETA HERO
   const toggleBtn = document.querySelector(".menu-toggle-hero");
   const menuInterno = document.querySelector(".menu-interno");
 
   if (toggleBtn && menuInterno) {
-    toggleBtn.addEventListener("click", () => {
+    // Función para alternar la clase active
+    const toggleMenu = (e) => {
+      e.preventDefault(); // Evita comportamientos extraños en pantalla táctil
+      e.stopPropagation(); // Evita que el toque se propague a otros elementos
       menuInterno.classList.toggle("active");
-    });
+    };
+
+    // Usamos 'pointerdown' para respuesta táctil instantánea y 'click' de respaldo
+    toggleBtn.addEventListener("pointerdown", toggleMenu);
 
     // Cerrar menú al hacer clic en un enlace
     menuInterno.querySelectorAll("a").forEach((link) => {
