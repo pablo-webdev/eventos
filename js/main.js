@@ -2,8 +2,42 @@
    MIDNIGHT SOUND - MAIN JAVASCRIPT
    ========================================================================== */
 
+// 1. MENÚ RESPONSIVE (Independiente y aislado)
+(function initMenu() {
+  const setup = () => {
+    const toggleBtn = document.getElementById("menuToggleHero");
+    const menuInterno = document.getElementById("menuInterno");
+
+    if (!toggleBtn || !menuInterno) return;
+
+    toggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menuInterno.classList.toggle("active");
+    });
+
+    menuInterno.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuInterno.classList.remove("active");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!toggleBtn.contains(e.target) && !menuInterno.contains(e.target)) {
+        menuInterno.classList.remove("active");
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setup);
+  } else {
+    setup();
+  }
+})();
+
+// 2. RESTO DE FUNCIONALIDADES
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. ANIMACIÓN DE TEXTO CON TYPED.JS (HERO)
+  // ANIMACIÓN DE TEXTO CON TYPED.JS (HERO)
   if (typeof Typed !== "undefined" && document.querySelector(".typed")) {
     new Typed(".typed", {
       strings: [
@@ -26,39 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. MENÚ RESPONSIVE DENTRO DE LA TARJETA HERO
-  const toggleBtn = document.getElementById("menuToggleHero");
-  const menuInterno = document.getElementById("menuInterno");
-
-  if (toggleBtn && menuInterno) {
-    toggleBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menuInterno.classList.toggle("active");
-    });
-
-    // Cerrar el menú automáticamente al dar clic/toque en cualquier enlace
-    menuInterno.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menuInterno.classList.remove("active");
-      });
-    });
-
-    // Opcional: Cerrar menú si el usuario toca en cualquier otra parte fuera de él
-    document.addEventListener("click", (e) => {
-      if (!toggleBtn.contains(e.target) && !menuInterno.contains(e.target)) {
-        menuInterno.classList.remove("active");
-      }
-    });
-  }
-
-  // 3. BOTÓN SCROLL TO TOP
+  // BOTÓN SCROLL TO TOP
   const goTopBtn = document.querySelector(".go-top-cont");
 
   if (goTopBtn) {
     window.addEventListener("scroll", () => {
       let scrollY = window.scrollY || document.documentElement.scrollTop;
 
-      // Muestra si pasas de 100px, pero solo se oculta si regresas casi hasta arriba (< 20px)
       if (scrollY > 100) {
         goTopBtn.classList.add("show");
       } else if (scrollY < 20) {
@@ -75,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. DUPLICAR ELEMENTOS DEL CARRUSEL DE TESTIMONIOS (EFECTO INFINITO)
+  // DUPLICAR ELEMENTOS DEL CARRUSEL DE TESTIMONIOS (EFECTO INFINITO)
   const tickerTrack = document.querySelector(".ticker-track");
   if (tickerTrack) {
     const cards = Array.from(tickerTrack.children);
